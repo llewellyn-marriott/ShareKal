@@ -1,0 +1,5 @@
+Options +FollowSymlinks
+RewriteEngine On
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^board/([a-zA-Z0-9_/-]+) index.php?page=$1 [QSA]
+RewriteRule ^board/?$ index.php?page=community/news [QSA]

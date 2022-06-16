@@ -1,0 +1,340 @@
+USE [sharekal_2_0_0]
+GO
+/****** Object:  Table [dbo].[UserLinks]    Script Date: 12/03/2010 23:32:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[UserLinks](
+	[LID] [int] IDENTITY(1,1) NOT NULL,
+	[Text] [varchar](50) NULL,
+	[URL] [varchar](500) NULL,
+	[Min_SiteAdmin] [int] NULL,
+	[Max_SiteAdmin] [int] NULL,
+	[Order] [int] NULL,
+	[Local] [int] NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[UserLinks] ON
+INSERT [dbo].[UserLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [Local]) VALUES (1, N'Change Password', N'account/change-pw', 0, 32, 1, 1)
+INSERT [dbo].[UserLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [Local]) VALUES (2, N'Logout', N'account/logout', 0, 32, 5, 1)
+INSERT [dbo].[UserLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [Local]) VALUES (3, N'Post News', N'community/news/post', 32, 32, 4, 1)
+INSERT [dbo].[UserLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [Local]) VALUES (4, N'Change Email', N'account/change-email', 0, 32, 2, 1)
+INSERT [dbo].[UserLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [Local]) VALUES (5, N'Recover SN', N'account/recover-sn', 0, 32, 3, 1)
+SET IDENTITY_INSERT [dbo].[UserLinks] OFF
+/****** Object:  Table [dbo].[ServerStatus]    Script Date: 12/03/2010 23:32:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ServerStatus](
+	[SID] [int] NOT NULL,
+	[Status] [int] NULL,
+	[Last_Update] [float] NULL,
+ CONSTRAINT [PK_ServerStatus] PRIMARY KEY CLUSTERED 
+(
+	[SID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[ServerStatus] ([SID], [Status], [Last_Update]) VALUES (1, 1, 1291379502.1697)
+INSERT [dbo].[ServerStatus] ([SID], [Status], [Last_Update]) VALUES (2, 0, 1291379507.172)
+/****** Object:  Table [dbo].[Servers]    Script Date: 12/03/2010 23:32:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Servers](
+	[SID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NULL,
+	[IP] [varchar](50) NULL,
+	[Port] [int] NULL,
+	[kal_db] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[Servers] ON
+INSERT [dbo].[Servers] ([SID], [Name], [IP], [Port], [kal_db]) VALUES (1, N'Nareah', N'127.0.0.1', 80, N'kal_db')
+INSERT [dbo].[Servers] ([SID], [Name], [IP], [Port], [kal_db]) VALUES (2, N'Bango', N'192.168.1.80', 1337, N'kal_db')
+SET IDENTITY_INSERT [dbo].[Servers] OFF
+/****** Object:  Table [dbo].[ServerFeatures]    Script Date: 12/03/2010 23:32:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[ServerFeatures](
+	[SID] [int] NULL,
+	[Feature] [varchar](50) NULL,
+	[Enabled] [int] NULL,
+	[Min_SiteAdmin] [int] NULL,
+	[Max_SiteAdmin] [int] NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+INSERT [dbo].[ServerFeatures] ([SID], [Feature], [Enabled], [Min_SiteAdmin], [Max_SiteAdmin]) VALUES (1, N'status', 1, -1, 32)
+INSERT [dbo].[ServerFeatures] ([SID], [Feature], [Enabled], [Min_SiteAdmin], [Max_SiteAdmin]) VALUES (2, N'status', 1, -1, 32)
+/****** Object:  Table [dbo].[Ranks]    Script Date: 12/03/2010 23:32:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Ranks](
+	[RID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NULL,
+	[Color] [varchar](50) NULL,
+	[SiteAdmin] [int] NULL,
+ CONSTRAINT [PK_Ranks] PRIMARY KEY CLUSTERED 
+(
+	[RID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[Ranks] ON
+INSERT [dbo].[Ranks] ([RID], [Name], [Color], [SiteAdmin]) VALUES (1, N'Player', N'#467CB4', 0)
+INSERT [dbo].[Ranks] ([RID], [Name], [Color], [SiteAdmin]) VALUES (2, N'Admin', N'#CC3300', 32)
+INSERT [dbo].[Ranks] ([RID], [Name], [Color], [SiteAdmin]) VALUES (3, N'Gold Member', N'#FF9900', 1)
+SET IDENTITY_INSERT [dbo].[Ranks] OFF
+/****** Object:  Table [dbo].[PlayerLinks]    Script Date: 12/03/2010 23:32:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[PlayerLinks](
+	[LID] [int] IDENTITY(1,1) NOT NULL,
+	[Text] [varchar](50) NULL,
+	[URL] [varchar](500) NULL,
+	[Min_SiteAdmin] [int] NULL,
+	[Max_SiteAdmin] [int] NULL,
+	[Order] [int] NULL,
+	[SID] [int] NULL,
+	[Global] [int] NULL,
+	[GlobalSiteAdmin] [int] NULL,
+	[ServerSiteAdmin] [int] NULL,
+ CONSTRAINT [PK_PlayerLinks] PRIMARY KEY CLUSTERED 
+(
+	[LID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[PlayerLinks] ON
+INSERT [dbo].[PlayerLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [SID], [Global], [GlobalSiteAdmin], [ServerSiteAdmin]) VALUES (1, N'Reset Rage Bar', N'player/edit/reset-rage-bar', 1, 32, 1, -1, 0, 0, 0)
+INSERT [dbo].[PlayerLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [SID], [Global], [GlobalSiteAdmin], [ServerSiteAdmin]) VALUES (2, N'Reset Location', N'player/edit/reset-location', 0, 32, 2, -1, 0, 0, 0)
+INSERT [dbo].[PlayerLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [SID], [Global], [GlobalSiteAdmin], [ServerSiteAdmin]) VALUES (3, N'Reset Guild Join Time', N'player/edit/reset-guild-join-time', 1, 32, 3, -1, 0, 0, 0)
+INSERT [dbo].[PlayerLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [SID], [Global], [GlobalSiteAdmin], [ServerSiteAdmin]) VALUES (4, N'Edit Stats', N'player/edit/edit-stats', 32, 32, 4, -1, 1, 0, 1)
+INSERT [dbo].[PlayerLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [SID], [Global], [GlobalSiteAdmin], [ServerSiteAdmin]) VALUES (5, N'Ban', N'player/edit/ban', 32, 32, 5, -1, 1, 0, 1)
+INSERT [dbo].[PlayerLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [SID], [Global], [GlobalSiteAdmin], [ServerSiteAdmin]) VALUES (6, N'Set Main Character', N'player/edit/set-main', 0, 32, 6, -1, 0, 0, 0)
+INSERT [dbo].[PlayerLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Order], [SID], [Global], [GlobalSiteAdmin], [ServerSiteAdmin]) VALUES (7, N'Unban', N'player/edit/unban', 32, 32, 7, -1, 1, 0, 1)
+SET IDENTITY_INSERT [dbo].[PlayerLinks] OFF
+/****** Object:  Table [dbo].[Pages]    Script Date: 12/03/2010 23:32:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Pages](
+	[PAID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NULL,
+	[Min_SiteAdmin] [int] NULL,
+	[Max_SiteAdmin] [int] NULL,
+	[SID] [int] NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[Pages] ON
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (1, N'community/news', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (2, N'account/register', -1, -1, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (3, N'server/ranking', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (4, N'downloads', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (5, N'account/login', -1, -1, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (6, N'account/change-pw', 0, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (7, N'account/change-email', 0, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (8, N'about', -1, 32, 1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (9, N'community/news/post', 32, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (13, N'account/recover-details', -1, -1, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (14, N'404', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (15, N'test/redirect', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (16, N'player/edit/reset-location', 0, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (17, N'player/edit/reset-guild-join-time', 1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (18, N'player/edit/reset-rage-bar', 1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (20, N'guild/view', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (21, N'server/database', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (22, N'community/events/1', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (23, N'community/events/2', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (25, N'community/events/3', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (10, N'community/support', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (11, N'account/logout', 0, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (12, N'player/view', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (19, N'server/database/search', -1, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (26, N'account/activate', 0, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (27, N'account/recover-sn', 0, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (28, N'player/edit/stats', 32, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (30, N'player/edit/set-main', 0, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (33, N'account/confirm-email', 0, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (34, N'player/edit/edit-stats', 32, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (29, N'player/edit/ban', 32, 32, -1)
+INSERT [dbo].[Pages] ([PAID], [Name], [Min_SiteAdmin], [Max_SiteAdmin], [SID]) VALUES (31, N'player/edit/unban', 32, 32, -1)
+SET IDENTITY_INSERT [dbo].[Pages] OFF
+/****** Object:  Table [dbo].[News]    Script Date: 12/03/2010 23:32:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[News](
+	[NID] [int] IDENTITY(1,1) NOT NULL,
+	[Subject] [varchar](50) NULL,
+	[Body] [text] NULL,
+	[UID] [int] NULL,
+	[Date] [smalldatetime] NULL,
+	[Deleted] [int] NULL,
+	[Icon] [varchar](50) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[News] ON
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (1, N'Welcome to Long Cat Kal', N'Open Beta will be starting on the 19th of October with the halloween event running also, the website is not yet completed but register and activation work. On the 30th of October there will be a content update which will add more features to the website and to the game, hopefully i can get 3rd job files by then.', 17, CAST(0x9E130000 AS SmallDateTime), 0, N'action012.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (2, N'Client', N'[url=http://arturasserver.com/longcatkal/LongCatKal.zip]Download Here[/url]', 17, CAST(0x9E140000 AS SmallDateTime), 1, NULL)
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (3, N'Security Update', N'[url=http://arturasserver.com/uploads/63/update_0_11.zip]Download Here[/url] This update must be manually applied to the game files, this will increase the protection from hacks.', 9, CAST(0x9E150000 AS SmallDateTime), NULL, NULL)
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (4, N'Security Update', N'[url=http://arturasserver.com/uploads/63/update_0_11.zip]Download Here[/url] This update must be manually applied to the game files, this will increase the protection from hacks.', 9, NULL, NULL, NULL)
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (6, N'Server Offline', N'Server is now offline preparing for update over the weekend.
+
+Featuring:
+
+Higher Drop Rate
+Job NPC
+Bead Of Fire (Will work on EVERY armor above g40)
+Fixed Launcher
+PvP Items & Areas
+
+Maybe some other stuff too.', 17, CAST(0x9E1F0083 AS SmallDateTime), 0, N'action012.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (9, N'Launcher', N'If you are having trouble launcher the game after you download it please get the latest launcher from here:
+http://arturasserver.com/longcatkal/LongCatKal.exe
+
+Also i am trying to fix the lag.', 17, CAST(0x9E2A00FB AS SmallDateTime), 0, N'action012.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (10, N'Test', N'testing icons', 17, CAST(0x9E300228 AS SmallDateTime), 0, N'buff077.bmp')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (5, N'Security Update', N'[url=http://arturasserver.com/uploads/63/update_0_11.zip]Download Here[/url] This update must be manually applied to the game files, this will increase the protection from hacks.', 17, CAST(0x9E150000 AS SmallDateTime), 1, NULL)
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (8, N'Launcher Issues', N'Launcher issues are being caused by regional language settings other than en-GB, I am currently working on a fix for this.', 17, CAST(0x9E240173 AS SmallDateTime), 0, N'buff058.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (7, N'Delay with update', N'Theres been a little delay with the update due to certain people not being online to get files off -.- (exteco) and also me having to work all week (but at least Ive made lots of money to buy add-ons for the server)', 17, CAST(0x9E1F0227 AS SmallDateTime), 0, N'buff058.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (11, N'injection test', N'&#039; test&#039;  quotes &#039;&#039;&#039; &quot; /&quot; \&quot;  \&#039; \&quot;', 56, CAST(0x9E3B0173 AS SmallDateTime), 0, N'action012.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (12, N'Double Characters', N'yes i&#039;m aware there&#039;s copies of each character showing on s2, this is because i pointed s2 database to s1 just to test multi-server support', 56, CAST(0x9E3B01EB AS SmallDateTime), 0, N'buff005_1.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (13, N'test', N'lllllllllllol', 56, CAST(0x9E3B0263 AS SmallDateTime), 0, N'buff139.bmp')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (14, N'dfadfa', N'sdfasdfdddd', 56, CAST(0x9E3C02DC AS SmallDateTime), 0, N'action012.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (15, N'Login', N'Login with
+
+ID: admin
+PWD: admin
+
+to test site admin features', 56, CAST(0x9E3C02DC AS SmallDateTime), 0, N'buff035.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (16, N'Erik', N'Erik was here! ', 56, CAST(0x9E3E0083 AS SmallDateTime), 0, N'buff004.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (17, N'Pfft', N'Yeah [b]right[/b].', 56, CAST(0x9E3E00BF AS SmallDateTime), 0, N'buff081.bmp')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (18, N'Admin Project Evolution', N'http://evolutionkal.de/', 56, CAST(0x9E3F0085 AS SmallDateTime), 0, N'action012.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (19, N'Lol', N'lol that website is shite :D', 56, CAST(0x9E3F00C0 AS SmallDateTime), 0, N'action012.BMP')
+INSERT [dbo].[News] ([NID], [Subject], [Body], [UID], [Date], [Deleted], [Icon]) VALUES (20, N'also', N'learn to url [url=http://www.google.com]like this[/url]', 56, CAST(0x9E3F00C0 AS SmallDateTime), 0, N'action012.BMP')
+SET IDENTITY_INSERT [dbo].[News] OFF
+/****** Object:  Table [dbo].[MenuLinks]    Script Date: 12/03/2010 23:32:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[MenuLinks](
+	[LID] [int] IDENTITY(1,1) NOT NULL,
+	[Text] [varchar](50) NULL,
+	[URL] [varchar](5000) NULL,
+	[Min_SiteAdmin] [int] NULL,
+	[Max_SiteAdmin] [int] NULL,
+	[Local] [int] NULL,
+	[Sidebar] [int] NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[MenuLinks] ON
+INSERT [dbo].[MenuLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Local], [Sidebar]) VALUES (1, N'News', N'community/news', -1, 32, 1, 0)
+INSERT [dbo].[MenuLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Local], [Sidebar]) VALUES (2, N'Register', N'account/register', -1, -1, 1, 0)
+INSERT [dbo].[MenuLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Local], [Sidebar]) VALUES (9, N'Database Search', N'server/database', -1, 32, 1, 1)
+INSERT [dbo].[MenuLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Local], [Sidebar]) VALUES (4, N'Ranking', N'server/ranking', -1, 32, 1, 0)
+INSERT [dbo].[MenuLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Local], [Sidebar]) VALUES (5, N'Downloads', N'downloads', -1, 32, 1, 0)
+INSERT [dbo].[MenuLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Local], [Sidebar]) VALUES (6, N'About', N'about', -1, 32, 1, 0)
+INSERT [dbo].[MenuLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Local], [Sidebar]) VALUES (7, N'Forum', N'http://www.panimalsserver.com/forum', -1, 32, 0, 0)
+INSERT [dbo].[MenuLinks] ([LID], [Text], [URL], [Min_SiteAdmin], [Max_SiteAdmin], [Local], [Sidebar]) VALUES (8, N'Support', N'community/support', -1, 32, 1, 0)
+SET IDENTITY_INSERT [dbo].[MenuLinks] OFF
+/****** Object:  Table [dbo].[Events]    Script Date: 12/03/2010 23:32:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Events](
+	[EID] [int] NOT NULL,
+	[URL] [varchar](200) NULL,
+	[Local] [int] NULL,
+ CONSTRAINT [PK_Events] PRIMARY KEY CLUSTERED 
+(
+	[EID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Must start at 0' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Events', @level2type=N'COLUMN',@level2name=N'EID'
+GO
+INSERT [dbo].[Events] ([EID], [URL], [Local]) VALUES (0, N'community/events/1', 1)
+INSERT [dbo].[Events] ([EID], [URL], [Local]) VALUES (1, N'community/events/2', 1)
+INSERT [dbo].[Events] ([EID], [URL], [Local]) VALUES (2, N'community/events/3', 1)
+/****** Object:  Table [dbo].[Bans]    Script Date: 12/03/2010 23:32:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Bans](
+	[BID] [int] IDENTITY(1,1) NOT NULL,
+	[UID] [int] NULL,
+	[BanDate] [smalldatetime] NULL,
+	[UnbanDate] [smalldatetime] NULL,
+	[Unbanned] [int] NULL,
+	[Reason] [text] NULL,
+	[BannedBy] [int] NULL,
+	[DisplayReason] [text] NULL,
+ CONSTRAINT [PK_Bans] PRIMARY KEY CLUSTERED 
+(
+	[BID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Bans] ON
+INSERT [dbo].[Bans] ([BID], [UID], [BanDate], [UnbanDate], [Unbanned], [Reason], [BannedBy], [DisplayReason]) VALUES (2, 25, CAST(0x9E3B0000 AS SmallDateTime), CAST(0x9E3B0000 AS SmallDateTime), 0, N'test', 56, NULL)
+INSERT [dbo].[Bans] ([BID], [UID], [BanDate], [UnbanDate], [Unbanned], [Reason], [BannedBy], [DisplayReason]) VALUES (3, 25, CAST(0x9E3B0000 AS SmallDateTime), CAST(0x9E3B0000 AS SmallDateTime), 0, N'test', 56, NULL)
+INSERT [dbo].[Bans] ([BID], [UID], [BanDate], [UnbanDate], [Unbanned], [Reason], [BannedBy], [DisplayReason]) VALUES (4, 25, CAST(0x9E3B0000 AS SmallDateTime), CAST(0x9E3B0000 AS SmallDateTime), 0, N'test', 56, NULL)
+INSERT [dbo].[Bans] ([BID], [UID], [BanDate], [UnbanDate], [Unbanned], [Reason], [BannedBy], [DisplayReason]) VALUES (5, 25, CAST(0x9E3B0000 AS SmallDateTime), CAST(0x9E3B0000 AS SmallDateTime), 0, N'test', 56, NULL)
+INSERT [dbo].[Bans] ([BID], [UID], [BanDate], [UnbanDate], [Unbanned], [Reason], [BannedBy], [DisplayReason]) VALUES (8, 56, CAST(0x9E3B0000 AS SmallDateTime), CAST(0x9E3B0000 AS SmallDateTime), 1, N'yrydydy', 56, N'fffff')
+INSERT [dbo].[Bans] ([BID], [UID], [BanDate], [UnbanDate], [Unbanned], [Reason], [BannedBy], [DisplayReason]) VALUES (10, 56, CAST(0x9E3B0000 AS SmallDateTime), CAST(0x9E3B0000 AS SmallDateTime), 1, N'yrydydy', 56, N'fffff')
+INSERT [dbo].[Bans] ([BID], [UID], [BanDate], [UnbanDate], [Unbanned], [Reason], [BannedBy], [DisplayReason]) VALUES (11, 56, CAST(0x9E3B0000 AS SmallDateTime), CAST(0x9E3A0000 AS SmallDateTime), 1, N'ooo yeah', 56, N'well im down')
+INSERT [dbo].[Bans] ([BID], [UID], [BanDate], [UnbanDate], [Unbanned], [Reason], [BannedBy], [DisplayReason]) VALUES (12, 56, CAST(0x9E3B0000 AS SmallDateTime), CAST(0x9E3A0000 AS SmallDateTime), 1, N'aijshdkj', 56, N'hkjahsdkjhj')
+INSERT [dbo].[Bans] ([BID], [UID], [BanDate], [UnbanDate], [Unbanned], [Reason], [BannedBy], [DisplayReason]) VALUES (13, 17, CAST(0x9E3C0000 AS SmallDateTime), CAST(0x9E5A0000 AS SmallDateTime), 0, N'lol', 56, N'lol')
+INSERT [dbo].[Bans] ([BID], [UID], [BanDate], [UnbanDate], [Unbanned], [Reason], [BannedBy], [DisplayReason]) VALUES (14, 56, CAST(0x9E3E0000 AS SmallDateTime), CAST(0x9E3E0000 AS SmallDateTime), 1, N'Test', 56, N'test')
+SET IDENTITY_INSERT [dbo].[Bans] OFF

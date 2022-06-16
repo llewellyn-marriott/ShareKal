@@ -1,0 +1,1 @@
+<a style="color:{$player_name_link.Rank.Color};" href="{$settings.site.root}/board/player/view?pid={$player_name_link.PID}&sid={$player_name_link.Server.SID}">{$player_name_link.Name}</a>

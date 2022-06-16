@@ -1,0 +1,314 @@
+body
+{
+	margin:50px;
+}
+
+#wrapper
+{
+	margin-left:auto;
+	margin-right:auto;
+	width:900px;
+}
+#header
+{
+	height:200px;
+	width:900px;
+}
+/* menu */
+#top-menu
+{
+	height:38px;
+	padding-left:20px;
+}
+#top-menu a
+{
+	display:inline-block;
+	height:28px;
+	padding-top:10px;
+	padding-left:15px;
+	padding-right:15px;
+}
+#content-wrapper
+{
+	padding:8px;
+	vertical-align:top;
+	overflow: auto;
+	text-align:left;
+}
+/* content */
+#content
+{
+	overflow: auto;
+	display:inline-block;
+	margin-left:10px;
+}
+/* content box wrapper for using siderbar 2 */
+#content-box-wrapper
+{
+	float:left;
+	margin-right:8px;
+}
+/* sidebar */
+#sidebar
+{
+	width:200px;
+	display:inline-block;
+	float:left;
+}
+/* sidebar2 = right */
+#sidebar2
+{
+	width:200px;
+	display:inline-block;
+	float: right;
+}
+/* boxes */
+/* box1  = sidebar box*/
+/* box2 = sidebar login box*/
+.box1-wrapper, .box2-wrapper
+{
+	width:200px;
+	margin-bottom:10px;
+}
+.box1-header, .box2-header
+{
+	height:22px;
+	padding-top:8px;
+	padding-left:10px;
+}
+.box1-content, .box2-content
+{
+	padding:15px;
+	padding-bottom:0px;
+}
+.box1-footer, .box2-footer
+{
+	height:22px;
+	padding-top:8px;
+	padding-left:10px;
+}
+/* box3 = content box big */
+.box3-wrapper
+{
+	width:666px;
+	margin-bottom:10px;
+}
+.box3-header
+{
+	height:22px;
+	padding-top:8px;
+	padding-left:10px;
+}
+.box3-content
+{
+	padding:10px;
+}
+.box3-footer
+{
+	height:22px;
+	padding-top:6px;
+	padding-left:10px;
+}
+/* box4 = content box small */
+.box4-wrapper
+{
+	width:456px;
+	margin-bottom:10px;
+}
+.box4-header
+{
+	height:26px;
+	padding-top:4px;
+	padding-left:5px;
+}
+.box4-content
+{
+	padding:15px;
+}
+.box4-footer
+{
+	height:26px;
+	padding-top:2px;
+	padding-left:2px;
+}
+/* box5 = event box */
+.box5-wrapper
+{
+	width:454px;
+	margin-bottom:10px;
+	padding:1px;
+}
+.box5-content
+{
+	height:156px;
+}
+
+/* misc */
+.error
+{
+	padding:5px;
+	margin:5px;
+}
+/* account area on sidebar */
+.player-list .player
+{
+	width:160px;
+	height:42px;
+	padding:3px;
+	display:block;
+}
+.player-list .player .class-icon
+{
+	float:left;
+	width:36px;
+	height:36px;
+	margin-top:3px;
+	margin-left:2px;
+}
+.text-field
+{
+	padding-left:5px;
+	padding-right:5px;
+	width:158px;
+	height:18px;
+}
+.server-status-online
+{
+	padding-left:5px;
+	padding-right:5px;
+	width:128px;
+	height:18px;
+	margin-left:5px;
+}
+.server-status-offline
+{
+	padding-left:5px;
+	padding-right:5px;
+	width:128px;
+	height:18px;
+	margin-left:5px;
+}
+.news-post-info
+{
+	padding-bottom:5px;
+	margin-bottom:5px;
+}
+.post-icon
+{
+	width:24px;
+	height:24px;
+	float:left;
+	margin-right:5px;
+	
+}
+.post-title
+{
+	margin-top:4px;
+}
+/* redirect page */
+#redirect-box
+{
+	margin-left:auto;
+	margin-right:auto;
+}
+#player-links
+{
+	vertical-align:top;
+}
+/* ranking */
+.list-table
+{
+	width:100%;
+}
+
+.top-class
+{
+	display:inline-block;
+	padding:5px;
+	margin:5px;
+}
+.top-classes
+{
+	width:410px;
+	margin-left:auto;
+	margin-right:auto;
+}
+/* button */
+.button
+{
+	width:104px;
+	height:22px;
+	padding-top:6px;
+	text-align:center;
+	display:inline-block;
+}
+/*search bar */
+#search-bar
+{
+	display:inline-block;
+	width:auto;
+	height:auto;
+	margin-top:5px;
+	margin-right:10px;
+	float:right;
+}
+/* event box */
+.event-controls
+{
+	height:28px;
+	padding-top:6px;
+	text-align:right;
+	padding-right:10px;
+}
+.event-controls a
+{
+	height:20px;
+	width:24px;
+	display:inline-block;
+	padding-top:4px;
+}
+.event-controls a:hover
+{
+}
+#active-event-button
+{
+	display:block;
+	height:122px;
+	background: url(images/overlay-hidden.png);
+	width:452px;
+}
+.menu-list
+{
+	padding:0px;
+	margin:0px;
+	padding-left:25px;
+}
+.top10-list
+{
+	padding:0px;
+	margin:0px;
+	padding-left:25px;
+}
+.vote-button
+{
+	margin-left:28px;
+	padding:5px;
+	border:1px solid #666;
+	background-color:#CCC;
+	display: table;
+}
+.vote-button:hover
+{
+	background-color: #FFF;
+}
+
+#footer
+{
+	padding:20px;
+	height:50px;
+}
+
+.server-status
+{
+	padding:3px;
+}

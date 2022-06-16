@@ -1,0 +1,280 @@
+body
+{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	font-size:12px;
+	background-color: #999;
+}
+#header
+{
+	background:url(images/header.png) no-repeat top center;
+}
+body a
+{
+	color: #467CA4;
+	text-decoration:none;
+}
+body a:hover
+{
+	color: #36455F;
+	text-decoration:underline;
+}
+#content-wrapper
+{
+	background:url(images/content-wrapper-bg.png) repeat-y;
+}
+#wrapper
+{
+	
+}
+/* menu */
+#top-menu
+{
+	background:url(images/top-menu-bg.png) center no-repeat;
+}
+#top-menu a
+{
+	background:url(images/top-menu-button.png) top left repeat-x;
+	color: #333;
+	text-shadow:#FFF 1px 1px 1px;
+	text-decoration:none;
+	font-size:15px;
+	border-left:1px solid #666666;
+	border-right:1px solid #666666;
+}
+#top-menu a:hover
+{
+	background-position:bottom left;
+	border-left:1px solid #000;
+	border-right:1px solid #000;
+	color:  #FFF;
+	text-shadow:#000 1px 1px 2px;
+}
+
+/* boxes */
+/* box1 = sidebar box*/
+.box1-wrapper
+{
+}
+.box1-header
+{ 
+	background: url(images/box1-header-bg.png) no-repeat top left;
+}
+.box1-content
+{
+	background: url(images/box1-content-bg.png) repeat-y top left;
+}
+.box1-footer
+{ 
+	background: url(images/box1-footer-bg.png) no-repeat top left;
+}
+
+.box5-wrapper
+{
+	border:1px solid #999999;
+	background: url(images/box1-bg.png) white repeat-x bottom left;
+}
+.box1-header a, .box2-header a, .box3-header a, .box4-header a
+{
+	color: #666;
+	font-weight:bold;
+	font-size:14px;
+	text-decoration:none;
+	text-shadow:#FFF 1px 1px 1px;
+}
+.box5-content
+{
+	border:1px solid #000;
+	background-repeat:no-repeat;
+	background-image:url(images/events/events.jpg);
+}
+/* box4 = news box */
+.box4-wrapper
+{
+}
+.box4-header
+{ 
+	background: url(images/box4-header-bg.png) no-repeat top center;
+}
+.box4-content
+{
+	background: url(images/box4-content-bg.png) repeat-y top center;
+}
+.box4-footer
+{ 
+	background: url(images/box4-footer-bg.png) no-repeat top center;
+}
+/* box3 = content box big */
+.box3-wrapper
+{
+}
+.box3-header
+{ 
+	background: url(images/box3-header-bg.png) no-repeat top center;
+}
+.box3-content
+{
+	background: url(images/box3-content-bg.png) repeat-y top center;
+}
+.box3-footer
+{ 
+	background: url(images/box3-footer-bg.png) no-repeat top center;
+}
+/* box2 = login box */
+.box2-wrapper
+{
+}
+.box2-header
+{ 
+	background: url(images/box2-header-bg.png) no-repeat top center;
+}
+.box2-content
+{
+	background: url(images/box2-content-bg.png) repeat-y top center;
+}
+.box2-footer
+{ 
+	background: url(images/box2-footer-bg.png) no-repeat top center;
+}
+/* misc */
+.error
+{
+	background-color:#F0D6AE;
+	border:1px solid #F60;
+	font-size:12px;
+}
+/* account area on sidebar */
+.player-list .player
+{
+	background:url(images/player_list_bg_big.png) no-repeat top left;
+}
+.player-list .player:hover
+{
+	background-position:bottom left;
+	text-decoration:none;
+}
+.player-list .player .class-icon
+{
+	background-repeat:no-repeat;
+	margin-right:8px;
+}
+.player-list .player .player-info .name
+{
+	font-weight:bold;
+	color:#000;
+}
+.player-list .player .player-info .info
+{
+	color: #666;
+	font-size:11px;
+}
+.text-field
+{
+	border:1px solid #666;
+	background:url(images/textbox_bg.png) top left repeat-x;
+}
+.text-field:hover
+{
+	background-position:bottom left;
+}
+.text-field:active
+{
+	background-position:bottom left;
+}
+.text-field:focus
+{
+	background-position:bottom left;
+	outline:none;
+}
+
+.news-post-info
+{
+	border-bottom:1px dotted #666;
+	color:#666;
+}
+.post-icon
+{
+	background-repeat:no-repeat;
+	background-color:black;
+}
+
+/* ranking */
+.list-table
+{
+	width:100%;
+	border:1px solid #999;
+	border-top:none;
+}
+.list-table td
+{
+	border-top:1px solid #999;
+	padding:3px;
+}
+.list-table tr:hover
+{
+	background-color:#FFF;
+}
+.list-table .heading
+{
+	background-color: #C5C5C5;
+}
+.top-class
+{
+	background-color:#CCC;
+	border:1px solid #999;
+}
+.top-class img
+{
+	border:1px solid #333;
+}
+/* button */
+.button
+{
+	background:url(images/button.png) no-repeat top left;
+	color:#333;
+	text-decoration:none;
+	text-shadow:#FFF 1px 1px 1px;
+}
+.button:hover
+{
+	background-position:bottom left;
+	text-decoration:none;
+}
+/* event box */
+.event-controls
+{
+	background:url(images/overlay.png);
+}
+.event-controls a
+{
+	background:url(images/event_button.png) top left no-repeat;
+	color: #FFF;
+	text-decoration:none;
+	text-align:center;
+}
+.event-controls a:hover
+{
+	background-position:bottom;
+	color:white;
+	text-decoration:none;
+}
+.menu-list
+{
+	list-style: circle;
+}
+#footer
+{
+	background:url(images/footer-bg.png) no-repeat top center;
+	text-align:center;
+}
+.player-name-colored
+{
+	text-decoration:none;
+}
+
+.server-status
+{
+	background-color:#E5E5E5;
+	border:1px solid #666;
+	font-size:11px;
+}
